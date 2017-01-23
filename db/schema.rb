@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161023141410) do
+ActiveRecord::Schema.define(version: 20170123195528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20161023141410) do
 
   create_table "users", force: :cascade do |t|
     t.boolean  "admin",                  default: false
-    t.string   "avatar"
     t.string   "confirmation_digest"
     t.datetime "confirmed_at"
     t.string   "email",                                  null: false
@@ -69,6 +68,7 @@ ActiveRecord::Schema.define(version: 20161023141410) do
     t.string   "universally_unique_id",                  null: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.datetime "last_signed_in_at"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["handle"], name: "index_users_on_handle", unique: true, using: :btree
     t.index ["universally_unique_id"], name: "index_users_on_universally_unique_id", unique: true, using: :btree
